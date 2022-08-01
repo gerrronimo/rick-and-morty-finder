@@ -1,0 +1,38 @@
+.character-container {
+    background: url("../../assets/images/portal.png");
+    background-size: contain;
+    width: 300px;
+    height: 300px;
+
+    cursor: pointer;
+
+    margin: 25px;
+}
+
+.character-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 90%;
+}
+
+.character-image {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    user-select: none;
+    transition: .25s linear;
+}
+
+.character-image:hover {
+    box-shadow: 0 0 50px 10px rgba(191,214,65,1);
+    transition: .25s linear;
+}
+
+.character-info {
+    color: #ffffff;
+
+    margin-top: 25px;
+    text-align: center;
+}
