@@ -1,10 +1,9 @@
 import React, {useEffect} from 'react';
-import {CharactersList, CharacterInfo, Header} from "./components";
+import {CharactersList, CharacterInfo, Header, Pagination, NotFounded} from "./components";
 import {useAppSelector} from "./app/hooks";
 import {empty, getCharacter, showCharacterInfo} from "./modules/characters/charactersSlice";
 
 import './App.css';
-import {NotFounded} from "./components/shared/NotFounded/NotFounded";
 
 function App() {
   const isShowCharacterInfo = useAppSelector(showCharacterInfo);
@@ -12,18 +11,17 @@ function App() {
   const isEmpty = useAppSelector(empty);
 
   useEffect(() => {
-    if (isShowCharacterInfo) {
-      document.body.style.overflow = "hidden"
-    }
+    if (isShowCharacterInfo) document.body.style.overflow = "hidden"
   }, [isShowCharacterInfo])
 
   return (
-    <div className={`App ${isShowCharacterInfo && 'hide-scroll'}`}>
+    <div className="App">
       <Header />
 
-      {isEmpty && <NotFounded />}
+      {!isEmpty ? <CharactersList /> : <NotFounded />}
       {(isShowCharacterInfo && character) && <CharacterInfo character={character} />}
-      {!isEmpty && <CharactersList />}
+
+      <Pagination />
     </div>
   );
 }
