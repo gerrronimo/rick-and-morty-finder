@@ -27,6 +27,7 @@ export interface CharactersStore {
   loading: boolean,
   characters: CharacterType[],
   character: CharacterType | null,
+  empty: boolean,
 
   searchParams: SearchParams,
 }
@@ -34,4 +35,8 @@ export interface CharactersStore {
 export interface SearchParams {
   name: string,
   page: number,
+  species: string,
+  type: string,
+  gender: string,
+  status: string,
 }

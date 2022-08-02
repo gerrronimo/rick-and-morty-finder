@@ -10,7 +10,7 @@
     max-width: 400px;
     height: 40px;
     padding: 15px 20px;
-    margin: 15px 0;
+    margin: 15px;
 
     border-radius: 8px;
     border: 2px solid #e1e1e1;
@@ -35,7 +35,7 @@
 
 .searchContainer .icon {
     position: relative;
-    right: 40px;
+    right: 55px;
 
     padding: 5px;
 

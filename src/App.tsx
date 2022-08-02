@@ -1,13 +1,15 @@
 import React, {useEffect} from 'react';
 import {CharactersList, CharacterInfo, Header} from "./components";
 import {useAppSelector} from "./app/hooks";
-import {getCharacter, showCharacterInfo} from "./modules/characters/charactersSlice";
+import {empty, getCharacter, showCharacterInfo} from "./modules/characters/charactersSlice";
 
 import './App.css';
+import {NotFounded} from "./components/shared/NotFounded/NotFounded";
 
 function App() {
   const isShowCharacterInfo = useAppSelector(showCharacterInfo);
   const character = useAppSelector(getCharacter);
+  const isEmpty = useAppSelector(empty);
 
   useEffect(() => {
     if (isShowCharacterInfo) {
@@ -16,11 +18,12 @@ function App() {
   }, [isShowCharacterInfo])
 
   return (
-    // <div className="App"={}>
     <div className={`App ${isShowCharacterInfo && 'hide-scroll'}`}>
-      {(isShowCharacterInfo && character) && <CharacterInfo character={character} />}
       <Header />
-      <CharactersList />
+
+      {isEmpty && <NotFounded />}
+      {(isShowCharacterInfo && character) && <CharacterInfo character={character} />}
+      {!isEmpty && <CharactersList />}
     </div>
   );
 }

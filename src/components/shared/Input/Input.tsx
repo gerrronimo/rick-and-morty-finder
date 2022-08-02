@@ -1,32 +1,36 @@
 import React, {FC, KeyboardEventHandler, useCallback} from 'react';
-import {SearchLine} from '../../../../assets/icons/SeacrhLine';
 
-import './Search.css';
+import './style.css';
 
 export interface SearchInputProps {
   value: string,
   callback: (name: string) => void,
-  submitSearch: () => void,
+  submit: () => void,
+  placeholder?: string,
+  Icon?: FC,
 }
 
-export const SearchInput: FC<SearchInputProps> = ({value, callback, submitSearch}) => {
+export const Input: FC<SearchInputProps> = ({value, callback, submit, Icon, placeholder}) => {
   const submitOnEnterKey = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Enter') submitSearch();
-  }, [submitSearch]);
+    if (e.key === 'Enter') submit();
+  }, [submit]);
 
   return (
     <div className="searchContainer">
       <input
         type="text"
-        placeholder="Rick Sanchez"
+        placeholder={placeholder}
         value={value}
         onChange={(event) => callback(event.target.value)}
         onKeyDown={submitOnEnterKey as unknown as KeyboardEventHandler<HTMLInputElement>}
       />
 
-      <button className="icon" onClick={submitSearch}>
-        <SearchLine />
-      </button>
+      {Icon && (
+        <button className="icon" onClick={submit}>
+          {/*@ts-ignore*/}
+          <Icon />
+        </button>
+      )}
     </div>
   )
 }
