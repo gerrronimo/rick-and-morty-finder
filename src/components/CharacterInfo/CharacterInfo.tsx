@@ -1,5 +1,5 @@
 import React, {FC, useCallback} from 'react';
-import {useAppDispatch} from "../../app/hooks";
+import {useAppDispatch} from "../../modules/hooks";
 import {setCharacter} from "../../modules/characters/charactersSlice";
 import {CharacterType} from "../../modules/characters/types";
 
@@ -12,7 +12,7 @@ export interface CharacterInfoProps {
 export const CharacterInfo: FC<CharacterInfoProps> = ({character}) => {
   const dispatch = useAppDispatch();
 
-  const handleClose = useCallback(() => dispatch(setCharacter(null)), [])
+  const handleClose = useCallback(() => dispatch(setCharacter(null)), [dispatch])
 
   return (
     <>

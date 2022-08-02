@@ -1,6 +1,6 @@
 import React, {FC, useCallback, useMemo} from 'react';
 import './style.css';
-import {useAppDispatch, useAppSelector} from "../../../../app/hooks";
+import {useAppDispatch, useAppSelector} from "../../../../modules/hooks";
 import {
   getGender, getSearchParams,
   getStatus,
