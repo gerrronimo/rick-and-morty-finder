@@ -4,7 +4,6 @@ import {useAppSelector} from "./modules/hooks";
 import {empty, getCharacter, showCharacterInfo} from "./modules/characters/charactersSlice";
 
 import './App.css';
-import {NotFounded} from "./components/shared/NotFounded/NotFounded";
 
 function App() {
   const isShowCharacterInfo = useAppSelector(showCharacterInfo);
@@ -16,12 +15,13 @@ function App() {
   }, [isShowCharacterInfo])
 
   return (
-    <div className={`App ${isShowCharacterInfo && 'hide-scroll'}`}>
+    <div className="App">
       <Header />
 
-      {isEmpty && <NotFounded />}
+      {!isEmpty ? <CharactersList /> : <NotFounded />}
       {(isShowCharacterInfo && character) && <CharacterInfo character={character} />}
-      {!isEmpty && <CharactersList />}
+
+      <Pagination />
     </div>
   );
 }

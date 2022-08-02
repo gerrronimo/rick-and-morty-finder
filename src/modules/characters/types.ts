@@ -35,6 +35,7 @@ export interface CharactersStore {
 export interface SearchParams {
   name: string,
   page: number,
+  lastPage: number,
   species: string,
   type: string,
   gender: string,
