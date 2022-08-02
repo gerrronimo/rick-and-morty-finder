@@ -7,6 +7,7 @@ export const initialState = {
   searchParams: {
     name: '',
     page: 1,
+    lastPage: 1,
     species: '',
     type: '',
     gender: '',

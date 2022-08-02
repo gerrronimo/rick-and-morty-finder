@@ -19,6 +19,10 @@ export const characterSlice = createSlice({
     setCharacter: (state: CharactersStore, action: PayloadAction<CharacterType | null>) => {
       state.character = action.payload;
     },
+    setPage: (state: CharactersStore, action: PayloadAction<number>) => {
+      console.log(action.payload)
+      state.searchParams.page = action.payload;
+    },
     setSearch: (state: CharactersStore, action: PayloadAction<string>) => {
       state.searchParams.name = action.payload;
     },
@@ -39,6 +43,7 @@ export const characterSlice = createSlice({
     builder
       .addCase(loadCharacters.fulfilled, (state, action) => {
         state.empty = false;
+        state.searchParams.lastPage = action.payload.info.pages
         state.characters = action.payload.results
       })
       .addCase(loadCharacters.rejected, (state, action) => {
@@ -47,7 +52,7 @@ export const characterSlice = createSlice({
   }
 })
 
-export const {setCharacter, setSearch, setType, setSpecies, setGender, setStatus} = characterSlice.actions;
+export const {setCharacter, setSearch, setType, setSpecies, setGender, setStatus, setPage} = characterSlice.actions;
 
 export const getAllCharacters = (state: RootState) => state.characters.characters;
 export const getCharacter = (state: RootState) => state.characters.character;
@@ -58,7 +63,9 @@ export const getSpecies = (state: RootState) => state.characters.searchParams.sp
 export const getType = (state: RootState) => state.characters.searchParams.type;
 export const getGender = (state: RootState) => state.characters.searchParams.gender;
 export const getStatus = (state: RootState) => state.characters.searchParams.status;
+
 export const getPage = (state: RootState) => state.characters.searchParams.page;
+export const getLastPage = (state: RootState) => state.characters.searchParams.lastPage;
 
 export const showCharacterInfo = (state: RootState) => !!state.characters.character
 export const empty = (state: RootState) => state.characters.empty
