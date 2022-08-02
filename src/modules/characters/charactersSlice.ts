@@ -37,5 +37,7 @@ export const getAllCharacters = (state: RootState) => state.characters.character
 export const getSearchParams = (state: RootState) => state.characters.searchParams;
 export const getSearch = (state: RootState) => state.characters.searchParams.name;
 export const getPage = (state: RootState) => state.characters.searchParams.page;
+export const getCharacter = (state: RootState) => state.characters.character;
+export const showCharacterInfo = (state: RootState) => !!state.characters.character
 
 export default characterSlice.reducer;
