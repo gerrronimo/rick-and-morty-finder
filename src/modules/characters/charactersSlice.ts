@@ -22,22 +22,45 @@ export const characterSlice = createSlice({
     setSearch: (state: CharactersStore, action: PayloadAction<string>) => {
       state.searchParams.name = action.payload;
     },
+    setSpecies: (state: CharactersStore, action: PayloadAction<string>) => {
+      state.searchParams.species = action.payload;
+    },
+    setType: (state: CharactersStore, action: PayloadAction<string>) => {
+      state.searchParams.type = action.payload;
+    },
+    setGender: (state: CharactersStore, action: PayloadAction<string>) => {
+      state.searchParams.gender = action.payload;
+    },
+    setStatus: (state: CharactersStore, action: PayloadAction<string>) => {
+      state.searchParams.status = action.payload;
+    },
   },
   extraReducers: (builder) => {
-    builder.addCase(loadCharacters.fulfilled, (state, action) => {
-      state.characters = action.payload.results
-    })
+    builder
+      .addCase(loadCharacters.fulfilled, (state, action) => {
+        state.empty = false;
+        state.characters = action.payload.results
+      })
+      .addCase(loadCharacters.rejected, (state, action) => {
+        state.empty = true;
+      })
   }
 })
 
-export const {setCharacter, setSearch} = characterSlice.actions;
+export const {setCharacter, setSearch, setType, setSpecies, setGender, setStatus} = characterSlice.actions;
 
 export const getAllCharacters = (state: RootState) => state.characters.characters;
+export const getCharacter = (state: RootState) => state.characters.character;
 
 export const getSearchParams = (state: RootState) => state.characters.searchParams;
 export const getSearch = (state: RootState) => state.characters.searchParams.name;
+export const getSpecies = (state: RootState) => state.characters.searchParams.species;
+export const getType = (state: RootState) => state.characters.searchParams.type;
+export const getGender = (state: RootState) => state.characters.searchParams.gender;
+export const getStatus = (state: RootState) => state.characters.searchParams.status;
 export const getPage = (state: RootState) => state.characters.searchParams.page;
-export const getCharacter = (state: RootState) => state.characters.character;
+
 export const showCharacterInfo = (state: RootState) => !!state.characters.character
+export const empty = (state: RootState) => state.characters.empty
 
 export default characterSlice.reducer;
