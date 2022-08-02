@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
-import {CharactersList, CharacterInfo, Header, Pagination, NotFounded} from "./components";
-import {useAppSelector} from "./app/hooks";
+import {CharactersList, CharacterInfo, Header} from "./components";
+import {useAppSelector} from "./modules/hooks";
 import {empty, getCharacter, showCharacterInfo} from "./modules/characters/charactersSlice";
 
 import './App.css';
@@ -11,7 +11,7 @@ function App() {
   const isEmpty = useAppSelector(empty);
 
   useEffect(() => {
-    if (isShowCharacterInfo) document.body.style.overflow = "hidden"
+    document.body.style.overflow = isShowCharacterInfo ? 'hidden' : 'auto'
   }, [isShowCharacterInfo])
 
   return (

@@ -1,5 +1,5 @@
 import React, {FC, useCallback} from 'react';
-import {useAppDispatch, useAppSelector} from "../../../app/hooks";
+import {useAppDispatch, useAppSelector} from "../../../modules/hooks";
 import {
   getSearch,
   getSearchParams,

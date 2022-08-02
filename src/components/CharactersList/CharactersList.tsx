@@ -1,6 +1,6 @@
 import React, {FC, useEffect} from 'react'
 import {getAllCharacters, getSearchParams, loadCharacters} from "../../modules/characters/charactersSlice";
-import {useAppDispatch, useAppSelector} from "../../app/hooks";
+import {useAppDispatch, useAppSelector} from "../../modules/hooks";
 import {CharacterType} from "../../modules/characters/types";
 import {Character} from '../Character';
 import './style.css';
@@ -12,7 +12,7 @@ export const CharactersList: FC = () => {
 
   useEffect(() => {
     dispatch(loadCharacters(searchParams));
-  }, [dispatch])
+  }, [dispatch, searchParams])
 
   return (
     <div className="characters-list">
