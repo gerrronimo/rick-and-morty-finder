@@ -1,5 +1,5 @@
 .character-container {
-    background: url("../../assets/images/portal.png");
+    background: no-repeat url("../../assets/images/portal.png");
     background-size: contain;
     width: 300px;
     height: 300px;

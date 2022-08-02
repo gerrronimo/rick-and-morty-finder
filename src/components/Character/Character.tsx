@@ -1,13 +1,17 @@
-import React, {FC} from 'react';
+import React, {FC, useCallback} from 'react';
 import {CharacterType} from "../../modules/characters/types";
-import './style.css';
 import {useAnimation, motion} from "framer-motion";
+import {useAppDispatch} from "../../app/hooks";
+import {setCharacter} from "../../modules/characters/charactersSlice";
+
+import './style.css';
 
 export interface CharacterProps {
   character: CharacterType,
 }
 
 export const Character: FC<CharacterProps> = ({character}) => {
+  const dispatch = useAppDispatch();
   const imgAnimation = useAnimation()
 
   const handleMouseMove = async (e: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
@@ -23,8 +27,12 @@ export const Character: FC<CharacterProps> = ({character}) => {
     })
   }
 
+  const handleOpenInfo = useCallback(() => {
+    dispatch(setCharacter(character))
+  }, [])
+
   return (
-    <div className="character-container">
+    <div className="character-container" onClick={handleOpenInfo}>
       <div className="character-image-container">
         <motion.img
           className="character-image"

@@ -12,7 +12,7 @@ export const CharactersList: FC = () => {
 
   useEffect(() => {
     dispatch(loadCharacters(searchParams));
-  }, [])
+  }, [dispatch])
 
   return (
     <div className="characters-list">

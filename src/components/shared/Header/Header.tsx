@@ -11,11 +11,11 @@ export const Header: FC = () => {
 
   const onChangeSearchName = useCallback((name: string): void => {
     dispatch(setSearch(name));
-  }, [])
+  }, [dispatch])
 
   const submitSearch = useCallback(() => {
     dispatch(loadCharacters(searchParams));
-  }, [searchParams])
+  }, [searchParams, dispatch])
 
   return (
     <header>
