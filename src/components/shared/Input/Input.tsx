@@ -1,19 +1,28 @@
-import React, {FC, KeyboardEventHandler, useCallback} from 'react';
+import React, { FC, KeyboardEventHandler, useCallback } from "react";
 
-import './style.css';
+import "./style.css";
 
 export interface SearchInputProps {
-  value: string,
-  callback: (name: string) => void,
-  submit: () => void,
-  placeholder?: string,
-  Icon?: FC,
+  value: string;
+  callback: (name: string) => void;
+  submit: () => void;
+  placeholder?: string;
+  Icon?: FC;
 }
 
-export const Input: FC<SearchInputProps> = ({value, callback, submit, Icon, placeholder}) => {
-  const submitOnEnterKey = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Enter') submit();
-  }, [submit]);
+export const Input: FC<SearchInputProps> = ({
+  value,
+  callback,
+  submit,
+  Icon,
+  placeholder,
+}) => {
+  const submitOnEnterKey = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === "Enter") submit();
+    },
+    [submit]
+  );
 
   return (
     <div className="searchContainer">
@@ -22,7 +31,9 @@ export const Input: FC<SearchInputProps> = ({value, callback, submit, Icon, plac
         placeholder={placeholder}
         value={value}
         onChange={(event) => callback(event.target.value)}
-        onKeyDown={submitOnEnterKey as unknown as KeyboardEventHandler<HTMLInputElement>}
+        onKeyDown={
+          submitOnEnterKey as unknown as KeyboardEventHandler<HTMLInputElement>
+        }
       />
 
       {Icon && (
@@ -32,5 +43,5 @@ export const Input: FC<SearchInputProps> = ({value, callback, submit, Icon, plac
         </button>
       )}
     </div>
-  )
-}
+  );
+};

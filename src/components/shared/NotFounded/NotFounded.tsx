@@ -1,5 +1,6 @@
-import React, {FC} from 'react';
-import './style.css';
+import React, { FC } from "react";
+
+import "./style.css";
 
 export const NotFounded: FC = () => {
   return (
@@ -8,5 +9,5 @@ export const NotFounded: FC = () => {
       <p className="notFoundedText">Bad Request</p>
       <p className="notFoundedSubTitle">Try to change filters</p>
     </div>
-  )
-}
+  );
+};

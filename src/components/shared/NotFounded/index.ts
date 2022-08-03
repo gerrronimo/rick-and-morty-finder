@@ -1,1 +1,1 @@
-export * from './NotFounded';
+export * from "./NotFounded";

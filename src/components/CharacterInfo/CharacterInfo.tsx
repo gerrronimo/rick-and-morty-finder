@@ -1,28 +1,33 @@
-import React, {FC, useCallback} from 'react';
-import {useAppDispatch} from "../../modules/hooks";
-import {setCharacter} from "../../modules/characters/charactersSlice";
-import {CharacterType} from "../../modules/characters/types";
+import React, { FC, useCallback } from "react";
+import { useAppDispatch } from "../../modules/hooks";
+import { setCharacter } from "../../modules/characters/charactersSlice";
+import { CharacterType } from "../../modules/characters/types";
 
-import './style.css';
+import "./style.css";
 
 export interface CharacterInfoProps {
-  character: CharacterType
+  character: CharacterType;
 }
 
-export const CharacterInfo: FC<CharacterInfoProps> = ({character}) => {
+export const CharacterInfo: FC<CharacterInfoProps> = ({ character }) => {
   const dispatch = useAppDispatch();
 
-  const handleClose = useCallback(() => dispatch(setCharacter(null)), [dispatch])
+  const handleClose = useCallback(
+    () => dispatch(setCharacter(null)),
+    [dispatch]
+  );
 
   return (
     <>
-      <div className="character-popup-overlay" onClick={handleClose}/>
+      <div className="character-popup-overlay" onClick={handleClose} />
       <div className="character-popup">
-        <p className="close" onClick={handleClose}>[x]</p>
+        <p className="close" onClick={handleClose}>
+          [x]
+        </p>
 
         <div className="character-popup-content">
           <div>
-            <img src={character.image} alt={character.name} className="image"/>
+            <img src={character.image} alt={character.name} className="image" />
           </div>
 
           <div>
@@ -59,5 +64,5 @@ export const CharacterInfo: FC<CharacterInfoProps> = ({character}) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};

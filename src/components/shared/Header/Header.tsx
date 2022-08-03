@@ -1,18 +1,19 @@
-import React, {FC, useCallback} from 'react';
-import {useAppDispatch, useAppSelector} from "../../../modules/hooks";
+import React, { FC, useCallback } from "react";
+import { useAppDispatch, useAppSelector } from "../../../modules/hooks";
 import {
   getSearch,
   getSearchParams,
   getSpecies,
   getType,
   loadCharacters,
+  setPage,
   setSearch,
   setSpecies,
-  setType
+  setType,
 } from "../../../modules/characters/charactersSlice";
-import {Input} from "../Input";
-import {Filters} from "./Filters";
-import {SearchLine} from '../../../assets/icons/SeacrhLine';
+import { Input } from "../Input";
+import { Filters } from "./Filters";
+import { SearchLine } from "../../../assets/icons/SeacrhLine";
 
 export const Header: FC = () => {
   const dispatch = useAppDispatch();
@@ -21,21 +22,31 @@ export const Header: FC = () => {
   const searchType = useAppSelector(getType);
   const searchParams = useAppSelector(getSearchParams);
 
-  const onChangeSearchName = useCallback((name: string): void => {
-    dispatch(setSearch(name));
-  }, [dispatch]);
+  const onChangeSearchName = useCallback(
+    (name: string): void => {
+      dispatch(setSearch(name));
+    },
+    [dispatch]
+  );
 
-  const onChangeSearchSpecies = useCallback((name: string): void => {
-    dispatch(setSpecies(name));
-  }, [dispatch]);
+  const onChangeSearchSpecies = useCallback(
+    (name: string): void => {
+      dispatch(setSpecies(name));
+    },
+    [dispatch]
+  );
 
-  const onChangeSearchType = useCallback((name: string): void => {
-    dispatch(setType(name));
-  }, [dispatch]);
+  const onChangeSearchType = useCallback(
+    (name: string): void => {
+      dispatch(setType(name));
+    },
+    [dispatch]
+  );
 
   const submitSearch = useCallback(() => {
+    dispatch(setPage(1))
     dispatch(loadCharacters(searchParams));
-  }, [searchParams, dispatch])
+  }, [searchParams, dispatch]);
 
   return (
     <header>
@@ -61,7 +72,7 @@ export const Header: FC = () => {
         placeholder="Type"
       />
 
-      <Filters/>
+      <Filters />
     </header>
-  )
-}
+  );
+};

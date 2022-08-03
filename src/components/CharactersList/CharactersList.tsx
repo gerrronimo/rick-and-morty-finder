@@ -1,9 +1,15 @@
-import React, {FC, useEffect} from 'react'
-import {getAllCharacters, getSearchParams, loadCharacters} from "../../modules/characters/charactersSlice";
-import {useAppDispatch, useAppSelector} from "../../modules/hooks";
-import {CharacterType} from "../../modules/characters/types";
-import {Character} from '../Character';
-import './style.css';
+import React, { FC, useEffect } from "react";
+import {
+  getAllCharacters,
+  getSearchParams,
+  loadCharacters,
+} from "../../modules/characters/charactersSlice";
+import { useAppDispatch, useAppSelector } from "../../modules/hooks";
+import { CharacterType } from "../../modules/characters/types";
+import { Character } from "../Character";
+import { Pagination } from "../Pagination";
+
+import "./style.css";
 
 export const CharactersList: FC = () => {
   const characters = useAppSelector(getAllCharacters);
@@ -12,16 +18,19 @@ export const CharactersList: FC = () => {
 
   useEffect(() => {
     dispatch(loadCharacters(searchParams));
-  }, [dispatch, searchParams])
+  }, [dispatch, searchParams]);
 
   return (
-    <div className="characters-list">
-      {characters.map((character: CharacterType) => (
-        <Character
-          key={character.id}
-          character={character}
-        />
-      ))}
-    </div>
-  )
-}
+    <>
+      <div className="characters-list-container">
+        <div className="characters-list">
+          {characters.map((character: CharacterType) => (
+            <Character key={character.id} character={character} />
+          ))}
+        </div>
+      </div>
+
+      <Pagination />
+    </>
+  );
+};

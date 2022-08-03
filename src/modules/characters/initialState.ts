@@ -5,12 +5,12 @@ export const initialState = {
   empty: false,
 
   searchParams: {
-    name: '',
+    name: "",
     page: 1,
     lastPage: 1,
-    species: '',
-    type: '',
-    gender: '',
-    status: '',
-  }
-}
+    species: "",
+    type: "",
+    gender: "",
+    status: "",
+  },
+};

@@ -1,52 +1,51 @@
 .pagination {
-    color: #e1e1e1;
-    width: 300px;
-    margin: 50px auto;
+  color: #e1e1e1;
+  width: 300px;
+  max-width: 100vw;
+  margin: 100px auto 25px auto;
 
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
 }
 
 .pagination .page {
-    color: #e1e1e1;
-    min-width: 40px;
-    height: 40px;
-    /*padding: 10px;*/
-    border-radius: 8px;
-    cursor: pointer;
-    user-select: none;
-    transition: .3s linear;
+  color: #e1e1e1;
+  min-width: 40px;
+  height: 40px;
+  /*padding: 10px;*/
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.3s linear;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    margin: 0 15px;
-    border: 1px solid transparent;
+  margin: 0 5px;
+  border: 1px solid transparent;
 }
 
 .pagination .page:hover {
-    border: 1px solid #6e6e6e;
-    transition: .3s linear;
+  border: 1px solid #6e6e6e;
+  transition: 0.3s linear;
 }
 
 .current {
-    border: 1px solid #6e6e6e !important;
+  border: 1px solid #6e6e6e !important;
 }
 
-.page-separator {
-    color: #e1e1e1;
-    width: 40px;
-    height: 40px;
-    padding: 10px;
-    border-radius: 8px;
-    user-select: none;
-    transition: .3s linear;
+.separator {
+  color: #e1e1e1;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 8px;
+  user-select: none;
+  transition: 0.3s linear;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    margin: 0 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

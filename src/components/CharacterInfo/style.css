@@ -1,73 +1,85 @@
 .character-popup-overlay {
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, .35);
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    backdrop-filter: blur(5px);
-    transition: .5s linear;
-    z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.35);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  backdrop-filter: blur(5px);
+  transition: 0.5s linear;
+  z-index: 3;
 }
 
 .character-popup {
-    width: 80vw;
-    height: min-content;
-    left: 10vw;
-    top: 10vh;
+  width: 80vw;
+  height: min-content;
+  left: 10vw;
+  top: 10vh;
 
-    color: #e1e1e1;
-    background: #090909;
-    box-shadow: 0 0 25px 15px rgba(255, 255, 255, 0.1);
+  color: #e1e1e1;
+  background: #090909;
+  box-shadow: 0 0 25px 15px rgba(255, 255, 255, 0.1);
 
-    position: fixed;
-    margin: 0 auto;
-    padding: 50px 5vw;
+  position: fixed;
+  margin: 0 auto;
+  padding: 50px 5vw;
 
-    z-index: 4;
+  z-index: 4;
 }
 
 .character-popup-content {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  overflow: scroll;
 }
 
 .character-popup .close {
-    position: absolute;
-    top: 0;
-    right: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
 
-    cursor: pointer;
-    padding: 10px;
-    user-select: none;
+  cursor: pointer;
+  padding: 10px;
+  user-select: none;
 }
 
 .character-popup .character-info-container {
-    margin-bottom: 25px;
+  margin-bottom: 25px;
 }
 
 .character-popup .label {
-    font-size: 13px;
-    color: #6e6e6e;
+  font-size: 13px;
+  color: #6e6e6e;
 }
 
 .character-popup .image {
-    width: 30vw;
+  width: 30vw;
 }
 
 @media screen and (max-width: 768px) {
-    .character-popup .image {
-        width: 60vw;
-        margin: 0 auto;
-    }
+  .character-popup .image {
+    width: 60vw;
+    margin: 0 auto 25px auto;
+  }
 
-    .character-popup-content {
-        flex-direction: row;
-    }
+  .character-popup-content {
+    flex-direction: row;
+    overflow: auto;
+  }
 
-    .character-info-container {
-        margin-top: 35px;
-    }
+  .character-popup .character-info-container {
+    margin: 0;
+  }
+
+  .character-info-container h2 {
+    font-size: 22px;
+  }
+
+  .character-popup {
+    padding: 5vw;
+    top: 2vh;
+  }
 }
