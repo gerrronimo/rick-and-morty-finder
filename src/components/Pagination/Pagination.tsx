@@ -1,14 +1,9 @@
-import React, { FC, useCallback, useMemo } from "react";
-import { useAppDispatch, useAppSelector } from "../../modules/hooks";
-import {
-  getLastPage,
-  getPage,
-  getSearchParams,
-  loadCharacters,
-  setPage,
-} from "../../modules/characters/charactersSlice";
+import './style.sass';
 
-import "./style.css";
+import { FC, useCallback, useMemo } from 'react';
+
+import { getLastPage, getPage, getSearchParams, loadCharacters, setPage } from '../../modules/characters/charactersSlice';
+import { useAppDispatch, useAppSelector } from '../../modules/hooks';
 
 export const Pagination: FC = () => {
   const dispatch = useAppDispatch();

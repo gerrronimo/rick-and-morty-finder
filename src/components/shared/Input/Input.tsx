@@ -1,6 +1,6 @@
-import React, { FC, KeyboardEventHandler, useCallback } from "react";
+import './style.sass';
 
-import "./style.css";
+import { FC, KeyboardEventHandler, useCallback } from 'react';
 
 export interface SearchInputProps {
   value: string;

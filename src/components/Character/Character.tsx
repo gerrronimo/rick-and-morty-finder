@@ -1,10 +1,11 @@
-import React, { FC, useCallback } from "react";
-import { CharacterType } from "../../modules/characters/types";
-import { useAnimation, motion } from "framer-motion";
-import { useAppDispatch } from "../../modules/hooks";
-import { setCharacter } from "../../modules/characters/charactersSlice";
+import './style.sass';
 
-import "./style.css";
+import { motion, useAnimation } from 'framer-motion';
+import React, { FC, useCallback } from 'react';
+
+import { setCharacter } from '../../modules/characters/charactersSlice';
+import { CharacterType } from '../../modules/characters/types';
+import { useAppDispatch } from '../../modules/hooks';
 
 export interface CharacterProps {
   character: CharacterType;

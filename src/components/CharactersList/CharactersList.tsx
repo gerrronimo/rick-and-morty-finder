@@ -1,15 +1,12 @@
-import React, { FC, useEffect } from "react";
-import {
-  getAllCharacters,
-  getSearchParams,
-  loadCharacters,
-} from "../../modules/characters/charactersSlice";
-import { useAppDispatch, useAppSelector } from "../../modules/hooks";
-import { CharacterType } from "../../modules/characters/types";
-import { Character } from "../Character";
-import { Pagination } from "../Pagination";
+import './style.sass';
 
-import "./style.css";
+import { FC, useEffect } from 'react';
+
+import { getAllCharacters, getSearchParams, loadCharacters } from '../../modules/characters/charactersSlice';
+import { CharacterType } from '../../modules/characters/types';
+import { useAppDispatch, useAppSelector } from '../../modules/hooks';
+import { Character } from '../Character';
+import { Pagination } from '../Pagination';
 
 export const CharactersList: FC = () => {
   const characters = useAppSelector(getAllCharacters);

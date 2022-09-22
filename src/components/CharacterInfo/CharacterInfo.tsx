@@ -1,9 +1,10 @@
-import React, { FC, useCallback } from "react";
-import { useAppDispatch } from "../../modules/hooks";
-import { setCharacter } from "../../modules/characters/charactersSlice";
-import { CharacterType } from "../../modules/characters/types";
+import './style.sass';
 
-import "./style.css";
+import React, { FC, useCallback } from 'react';
+
+import { setCharacter } from '../../modules/characters/charactersSlice';
+import { CharacterType } from '../../modules/characters/types';
+import { useAppDispatch } from '../../modules/hooks';
 
 export interface CharacterInfoProps {
   character: CharacterType;
