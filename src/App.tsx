@@ -1,18 +1,10 @@
-import React, { useEffect } from "react";
-import {
-  CharactersList,
-  CharacterInfo,
-  Header,
-  NotFounded,
-} from "./components";
-import { useAppSelector } from "./modules/hooks";
-import {
-  empty,
-  getCharacter,
-  showCharacterInfo,
-} from "./modules/characters/charactersSlice";
+import './App.sass';
 
-import "./App.css";
+import { useEffect } from 'react';
+
+import { CharacterInfo, CharactersList, Header, NotFounded } from './components';
+import { empty, getCharacter, showCharacterInfo } from './modules/characters/charactersSlice';
+import { useAppSelector } from './modules/hooks';
 
 function App() {
   const isShowCharacterInfo = useAppSelector(showCharacterInfo);

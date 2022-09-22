@@ -1,5 +1,7 @@
-import React, { FC, useCallback, useMemo } from "react";
-import { useAppDispatch, useAppSelector } from "../../../../modules/hooks";
+import './style.sass';
+
+import { FC, useCallback, useMemo } from 'react';
+
 import {
   getGender,
   getSearchParams,
@@ -8,10 +10,9 @@ import {
   setGender,
   setPage,
   setStatus,
-} from "../../../../modules/characters/charactersSlice";
-import { Select } from "./Select";
-
-import "./style.css";
+} from '../../../../modules/characters/charactersSlice';
+import { useAppDispatch, useAppSelector } from '../../../../modules/hooks';
+import { Select } from './Select';
 
 export const Filters: FC = () => {
   const dispatch = useAppDispatch();

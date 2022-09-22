@@ -1,6 +1,6 @@
-import React, { FC } from "react";
+import './style.sass';
 
-import "./style.css";
+import { FC } from 'react';
 
 export const NotFounded: FC = () => {
   return (

@@ -1,0 +1,45 @@
+.searchContainer
+  display: flex
+  justify-content: center
+  align-content: center
+  align-items: center
+
+  & input
+    width: 100%
+    max-width: 400px
+    height: 40px
+    padding: 15px 20px
+    margin: 15px
+
+    border-radius: 8px
+    border: 2px solid #e1e1e1
+
+    color: #e1e1e1
+    background: none
+
+    transition: 0.15s ease-in-out
+
+  & input::placeholder
+    font-weight: 500
+    color: #e1e1e1
+    font-family: "Space Mono", monospace
+
+.searchContainer input:active,
+.searchContainer input:focus
+  outline: none
+  box-shadow: 0 0 0 5px rgba(176, 250, 145, 0.7)
+  transition: 0.15s ease-in-out
+
+.searchContainer .icon
+  position: relative
+  right: 55px
+
+  padding: 5px
+
+  background: none
+  outline: none
+  border: none
+  cursor: pointer
+
+  & svg
+    fill: #e1e1e1
